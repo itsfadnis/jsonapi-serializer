@@ -1288,10 +1288,10 @@ describe('JSON API Deserializer', function () {
         data: {
           type: 'users',
           attributes: { 'first-name': 'Sandro', 'last-name': 'Munda' },
-        },
-        links: {
-          self: '/articles/1/relationships/tags',
-          related: '/articles/1/tags'
+          links: {
+            self: '/articles/1/relationships/tags',
+            related: '/articles/1/tags'
+          }
         }
       };
 
