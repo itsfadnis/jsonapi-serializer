@@ -4,6 +4,7 @@
   <img src="https://github.com/SeyZ/jsonapi-serializer/blob/master/logo.jpg?raw=true" alt="JSONAPI Serializer Logo">
 </p>
 
+[![Build Status](https://semaphoreci.com/api/v1/itsfadnis/jsonapi-serializer/branches/master/badge.svg)](https://semaphoreci.com/itsfadnis/jsonapi-serializer)
 [![Build Status](https://travis-ci.org/SeyZ/jsonapi-serializer.svg?branch=master)](https://travis-ci.org/SeyZ/jsonapi-serializer)
 [![npm version](https://img.shields.io/npm/v/jsonapi-serializer.svg)](https://yarnpkg.com/en/package/jsonapi-serializer)
 [![download](https://img.shields.io/npm/dm/jsonapi-serializer.svg)](https://yarnpkg.com/en/package/jsonapi-serializer)
