@@ -142,6 +142,46 @@ describe('JSON API Deserializer', function () {
   });
 
   describe('Compound document', function () {
+    it('deserializes relationships even if they are not included', function () {
+      var dataSet = {
+        "data": [{
+          "type": "articles",
+          "id": "1",
+          "attributes": {
+            "title": "JSON:API paints my bikeshed!"
+          },
+          "relationships": {
+            "author": {
+              "links": {
+                "self": "http://example.com/articles/1/relationships/author",
+                "related": "http://example.com/articles/1/author"
+              },
+              "data": { "type": "people", "id": "9" }
+            },
+            "comments": {
+              "links": {
+                "self": "http://example.com/articles/1/relationships/comments",
+                "related": "http://example.com/articles/1/comments"
+              },
+              "data": [
+                { "type": "comments", "id": "5" },
+                { "type": "comments", "id": "12" }
+              ]
+            }
+          }
+        }]
+      };
+
+      return new JSONAPIDeserializer().deserialize(dataSet).then(function (json) {
+        expect(json).to.eql([{
+          title: 'JSON:API paints my bikeshed!',
+          id: '1',
+          author: { id: '9' },
+          comments: [ { id: '5' }, { id: '12' } ]
+        }]);
+      });
+    });
+
     it('should merge included relationships to attributes', function (done) {
       var dataSet = {
         data: [{
